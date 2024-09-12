@@ -13,28 +13,14 @@ const channelHandles = [
     "@WxScholl",                //Ryan Scholl
     "@johnmckinney4128",        //John McKinney (Tyler's dad)
     "@StormChaserVince",        //Vince Walettey
-    "@StormChaserBradArnold"    //Brad Arnold
+    "@StormChaserBradArnold",   //Brad Arnold
+    "@coreygerkenwx",           //Corey Gerken
+    "@PAStormTrackerz"          //PA Storm Trackerz
 ]
 
 const channelIds = await getChannelIDs(channelHandles)
-    // .then(res => console.log(res))
-    // .catch(err => console.error(err));
+const validChannelIds = channelIds.filter((id): id is string => id !== null);
 
-
- // const streamers = [
- //     {name: "Evan Freyberger", url: "BW2ctr_EIzI", channelId: ""},
- //     {name: "Ryan Hall", url: "XxXDvcNdj3o",  channelId: ""},
- //     {name: "Max Velocity", url: "BUNzCZMmX88",  channelId: ""},
- //     {name: "Reed Timmer", url: "eLH2t0FPPnU", channelId: ""},
- //     {name: "Conner Croff", url: "uj0vvRUGzIA", channelId: ""},
- //     {name: "Storm Chaser Media", url: "pW54bEO0O7w", channelId: ""},
- //     // {name: "Vince Waletti", url: "wcUzlyK9Bk0", channelId: "@StormChaserVince"},
- //     {name: "Freddy McKinney", url: "cehpzn56uoY", channelId: ""},
- //     // {name: "Cory Gerkin", url: "IJEnAFji5oc"},  //disabled by Cory
- //     {name: "Ryan Scholl", url: "keDUIttbBaQ", channelId: ""},
- //     {name: "Tyler Kurtz", url: "pW54bEO0O7w", channelId: ""},
- //     {name: "John McKinney", url: "H3GcagruT-s", channelId: ""}
- // ]
 
 // const channelIds = [
 //     'UCp2G_jHO53yj2NVjv8zbDmQ',
@@ -51,48 +37,64 @@ const channelIds = await getChannelIDs(channelHandles)
 
 
 export default async function Home() {
-    // const channelIds: string[] = await getChannelIDs(channelHandles)
-    //     .then(res => console.log(res))
-    //     .catch(err => console.error(err));
-    const broadcasts = await Promise.all(
-        channelIds.map(async (id) => {
-            const broadcast = await getLiveVideos(id);
-            if (broadcast && broadcast.length) {
-                return broadcast
-            }
-            return
+    const results = await Promise.all(
+        validChannelIds.map(async (id, index) => {
+            const videoData = await getLiveVideos(id);
+            return {id, handle: channelHandles[index], ...videoData};
         })
     );
-    const filteredBroadcasts = broadcasts.filter(Boolean);
-
-    // Flatten any nested arrays inside broadcasts
-    const flattenedBroadcasts = filteredBroadcasts.flat();
-
-    console.log(JSON.stringify(flattenedBroadcasts, null,2))
+    console.log("Results: ", JSON.stringify(results, null, 2))
+    // Filter the results into categories
+    const restrictedChannels = results.filter(result => result.isLive && !result.isEmbeddable);
+    const notLiveChannels = results.filter(result => !result.isLive);
+    const liveAndEmbeddableChannels = results.filter(result => result.isLive && result.isEmbeddable);
 
     return (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {flattenedBroadcasts.map(broadcast => (
-                <div key={broadcast.etag} className="w-full mb-3">
-                <div className="relative w-full h-0 pb-[56.25%]">
-                    <Suspense fallback={<p>Loading video...</p>}>
-                        <iframe
-                            className="absolute top-0 left-0  w-full h-full mb-8"
-                            id="player"
-                            src={`https://www.youtube.com/embed/${broadcast.id.videoId}?enablejsapi=1&autoplay=1&mute=1&origin=http://localhost:3001`}
-                        ></iframe>
-                    </Suspense>
-                </div>
-                    <div className="mt-4">
-                        <p className="font-bold">{broadcast.snippet.channelTitle}</p>
-                        <p className="text-gray-700">{broadcast.snippet.title}</p>
-                    </div>
+        <div className="p-4">
+            <p className="text-xl font-bold">Live and Embeddable Channels</p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+                {liveAndEmbeddableChannels.map((channel) => {
+                        console.log(channel)
+                        return (
+                            <div key={channel.id} className="w-full">
+                                <div className="relative w-full h-0 pb-[56.25%]">
+                                    <Suspense fallback={<p>Loading video...</p>}>
 
-                </div>
-            ))
-            }
+                                        <iframe
+                                            className="absolute top-0 left-0 w-full h-full"
+                                            id="player"
+                                            src={`https://www.youtube.com/embed/${channel.result.id.videoId}?enablejsapi=1&autoplay=1&mute=1&origin=http://localhost:3001`}
+                                        ></iframe>
+                                    </Suspense>
+                                </div>
+                                <div className="mt-4">
+                                    <p className="font-bold">{channel.result.snippet.channelTitle}</p>
+                                    <p className="text-gray-700">{channel.result.snippet.title}</p>
+                                </div>
+                            </div>
+                        )
+                    }
+                )
+                }
+            </div>
+            <div className="mb-8">
+                <p className="text-xl font-bold">Restricted Channels (Videos only available on YouTube)</p>
+                <ul>
+                    {restrictedChannels.map(channel => (
+                        <li key={channel.id}><span className="font-bold"> {channel.result.snippet.channelTitle}</span> - Video restricted</li>
+                    ))}
+                </ul>
+            </div>
+            <div className="mb-8">
+                <p className="text-xl font-bold">Channels Not Currently Live Streaming</p>
+                <ul>
+                    {notLiveChannels.map(channel => (
+                        <li key={channel.id}>{channel.handle} - Not live</li>
+                    ))}
+                </ul>
+            </div>
 
         </div>
     )
-
+        ;
 }

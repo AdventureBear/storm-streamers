@@ -8,6 +8,7 @@ export const getChannelIDs = async (handles: string[]): Promise<(string | null)[
             try {
                 const response = await fetch(url);
                 const data = await response.json();
+                console.log("\n***\nChannel ID: ", JSON.stringify(data, null, 2), "\n***")
 
                 if (data.items && data.items.length > 0) {
                     return data.items[0].id; // Return only the channelId
