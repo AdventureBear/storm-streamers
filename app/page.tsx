@@ -2,32 +2,32 @@ import {ReactNode, Suspense} from "react";
 import {getLiveVideos} from "@/app/getLiveVIdeos";
 import {getChannelIDs} from "@/app/getChannelIds";
 import {getChannelDetails} from "@/app/getChannelDetails"
-
+import Navbar from "@/app/Navbar";
 // Navbar Component
-function Navbar() {
-    return (
-        <nav className="bg-gray-800 p-4 justify-between flex mb-8 shadow-black drop-shadow-xl">
-            <div className="flex ">
-                <ul className="flex space-x-6 text-white">
-                    <li><a href="/" className="hover:text-blue-400">Home</a></li>
-                    <li><a href="/live" className="hover:text-blue-400">Live Now</a></li>
-                    <li><a href="/channels" className="hover:text-blue-400">Channels</a></li>
-                    <li><a href="/favorites" className="hover:text-blue-400">Favorite Channels</a></li>
-                    <li><a href="/leaderboard" className="hover:text-blue-400">Leaderboard</a></li>
-                    <li><a href="/about" className="hover:text-blue-400">About</a></li>
-                    <li><a href="/contact" className="hover:text-blue-400">Contact</a></li>
-                </ul>
-            </div>
-            <div className="flex">
-                <ul className="flex space-x-6 text-white">
-                    <li>Search</li>
-                    <li>Log In</li>
-                </ul>
-            </div>
-        </nav>
-
-    );
-}
+// function Navbar() {
+//     return (
+//         <nav className="bg-gray-800 p-4 justify-between flex mb-8 shadow-black drop-shadow-xl">
+//             <div className="flex ">
+//                 <ul className="flex space-x-6 text-white">
+//                     <li><a href="/" className="hover:text-blue-400">Home</a></li>
+//                     <li><a href="/live" className="hover:text-blue-400">Live Now</a></li>
+//                     <li><a href="/channels" className="hover:text-blue-400">Channels</a></li>
+//                     <li><a href="/favorites" className="hover:text-blue-400">Favorite Channels</a></li>
+//                     <li><a href="/leaderboard" className="hover:text-blue-400">Leaderboard</a></li>
+//                     <li><a href="/about" className="hover:text-blue-400">About</a></li>
+//                     <li><a href="/contact" className="hover:text-blue-400">Contact</a></li>
+//                 </ul>
+//             </div>
+//             <div className="flex">
+//                 <ul className="flex space-x-6 text-white">
+//                     <li>Search</li>
+//                     <li>Log In</li>
+//                 </ul>
+//             </div>
+//         </nav>
+//
+//     );
+// }
 
 // Page Layout
 function Layout({children}:{children:ReactNode}) {
@@ -50,20 +50,34 @@ function Layout({children}:{children:ReactNode}) {
 
 //key=API_KEY
 const channelHandles = [
-    "@evanfryberger",           //Evan fryberger
-    "@ReedTimmerWx",            //Reed Timmer
-    "@RyanHallYall",            //Ryan Hall
-    "@MaxVelocityWX",           //Max Velocity
-    "@ConnorCroff",             //Conner Croff
-    "@StormChaserTylerKurtz",   //TylerKurtz
-    "@FreddyMcKinney",          //FredMcKinney
-    "@WxScholl",                //Ryan Scholl
-    "@johnmckinney4128",        //John McKinney (Tyler's dad)
-    "@StormChaserVince",        //Vince Walettey
-    "@StormChaserBradArnold",   //Brad Arnold
-    "@coreygerkenwx",           //Corey Gerken
-    "@PAStormTrackerz"          //PA Storm Trackerz
-]
+    "@evanfryberger",           // Evan fryberger
+    "@ReedTimmerWx",            // Reed Timmer
+    "@RyanHallYall",            // Ryan Hall
+    "@MaxVelocityWX",           // Max Velocity
+    "@ConnorCroff",             // Conner Croff
+    "@StormChaserTylerKurtz",   // Tyler Kurtz
+    "@FreddyMcKinney",          // Fred McKinney
+    "@WxScholl",                // Ryan Scholl
+    "@johnmckinney4128",        // John McKinney (Tyler's dad)
+    "@StormChaserVince",        // Vince Waletti
+    "@StormChaserBradArnold",   // Brad Arnold
+    "@coreygerkenwx",           // Corey Gerken
+    "@PAStormTrackerz",         // PA Storm Trackerz
+    "@calebbeachamwx",          // Caleb Beachem
+    "@mr.dibble",               // Reilly Dibble
+    "@WxChasing",               // Branden Clement
+    "@stormrunnermedia",        // Garrett Thompson and DL Scales
+    "@StormchaserNickGorman",   // Nick Gorman
+    "@BamaStormChaser",         // Bret Adair
+    "@MaxOlsonChasing",         // Max Olson
+    "@ChasingZachary",          // Zachary Hall
+    "@StormChaserJordanHall" ,  //Jordan Hall
+    "@SierraLindseyWX" ,        //Sierra Lindsey
+    "@WxChasing",               //Brandon Clement
+    "@tornadopaigeyy",          //Tornado Paigeyy
+    "@StormChaserAaronRigsby",  //Arron Rigsby
+    "@AdamLucio",               //Adam Lucio
+];
 
 const channelIds = await getChannelIDs(channelHandles)
 const validChannelIds = channelIds.filter((id): id is string => id !== null);
@@ -84,6 +98,7 @@ const validChannelIds = channelIds.filter((id): id is string => id !== null);
 
 
 export default async function Home() {
+
     const results = await Promise.all(
         validChannelIds.map(async (id, index) => {
             const videoData = await getLiveVideos(id);
@@ -113,20 +128,44 @@ export default async function Home() {
                     {liveAndEmbeddableChannels.map((channel) => {
                             console.log(channel)
                             return (
-                                <div key={channel.id} className="w-full">
+                                <div key={channel.id} className="w-full mt-4 bg-white p-4 rounded shadow-md">
                                     <div className="relative w-full h-0 pb-[56.25%]">
                                         <Suspense fallback={<p>Loading video...</p>}>
 
                                             <iframe
-                                                className="absolute top-0 left-0 w-full h-full"
+                                                className="absolute top-0 left-0 w-full h-full rounded"
                                                 id="player"
                                                 src={`https://www.youtube.com/embed/${channel.result.id.videoId}?enablejsapi=1&autoplay=1&mute=1&origin=http://localhost:3001`}
                                             ></iframe>
+                                            {/* Unmute button */}
+                                            <button
+                                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mt-2"
+                                                // onClick={() => handleUnmute(channel.videoId)}
+                                            >
+                                                Unmute
+                                            </button>
                                         </Suspense>
                                     </div>
-                                    <div className="mt-4">
-                                        <p className="font-bold">{channel.result.snippet.channelTitle}</p>
-                                        <p className="text-white">{channel.result.snippet.title}</p>
+                                    <div className="mt-4 bg-white p-4">
+                                        <p className="font-bold text-blue-600">{channel.result.snippet.channelTitle}</p>
+                                        <p className="text-gray-700">{channel.result.snippet.title}</p>
+                                        {/* Subscribe Button */}
+                                        <a
+                                            href={`https://www.youtube.com/channel/${channel.channelId}?sub_confirmation=1`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded mt-2 inline-block"
+                                        >
+                                            Subscribe
+                                        </a>
+                                        <a
+                                            href={`https://www.youtube.com/channel/${channel.channelId}/join`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded mt-2 ml-2 inline-block"
+                                        >
+                                            Join
+                                        </a>
                                     </div>
                                 </div>
                             )
@@ -142,7 +181,7 @@ export default async function Home() {
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         {restrictedChannels.map(channel => (
                             <div key={channel.id}
-                                 className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                                 className="bg-gray-200 p-4 rounded-lg shadow-md flex justify-between items-center">
                                 <span className="font-bold text-blue-600">{channel.result.snippet.channelTitle}</span>
                                 <a href={`https://www.youtube.com/channel/${channel.id}`} target="_blank"
                                    rel="noopener noreferrer"
@@ -162,7 +201,7 @@ export default async function Home() {
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         {nonLiveChannelTitles.map(channel => (
                             <div key={channel.id}
-                                 className="text-bg-blue-200 font-semi-bold bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                                 className="text-bg-blue-200 font-semi-bold bg-gray-200 p-4 rounded-lg shadow-md flex justify-between items-center">
                                 <span className="font-bold text-blue-600">{channel.title}</span>
                                 <a href={`https://www.youtube.com/channel/${channel.id}`} target="_blank"
                                    rel="noopener noreferrer"
@@ -173,29 +212,6 @@ export default async function Home() {
                         ))}
                     </div>
 
-
-                    {/*<ul>*/}
-                    {/*{nonLiveChannelTitles.map(channel => (*/}
-                    {/*    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2" key={channel.id}>*/}
-                    {/*        <div className="flex">*/}
-                    {/*            <span className="flex font-bold text-white mr-2">{channel.title}</span> (Not live)*/}
-                    {/*        </div>*/}
-                    {/*        <button*/}
-                    {/*            className=" bg-blue-800 hover:bg-blue-500 text-bg-blue-200 font-semi-bold py-2 px-4 rounded">*/}
-                    {/*            <a*/}
-                    {/*                href={`https://www.youtube.com/channel/${channel.id}`}*/}
-                    {/*                target="_blank"*/}
-                    {/*                rel="noopener noreferrer"*/}
-                    {/*                // className=" underline ml-2"*/}
-                    {/*            >*/}
-                    {/*                Visit Channel*/}
-                    {/*            </a>*/}
-                    {/*        </button>*/}
-
-                    {/*    </div>*/}
-
-                    {/*))}*/}
-                    {/*</ul>*/}
                 </div>
 
             </div>

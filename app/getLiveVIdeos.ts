@@ -9,7 +9,7 @@ export const getLiveVideos = async (channel_id: string): Promise<any> => {
     const data = await response.json();
 
     if (!data.items || data.items.length === 0) {
-        // Not live streaming now
+        // Not live-streaming now
         return { isLive: false, isEmbeddable: false, videoId: null };
     }
 
