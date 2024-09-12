@@ -2,7 +2,7 @@ export const getChannelIDs = async (handles: string[]): Promise<(string | null)[
     const API_KEY = process.env.API_KEY;
     const search_root_url = `https://www.googleapis.com/youtube/v3/channels`;
 
-    const channelIDs = await Promise.all(
+    return await Promise.all(
         handles.map(async (handle) => {
             const url = `${search_root_url}?part=id&forHandle=${handle}&key=${API_KEY}`; // Ensure correct parameter, might need to adjust to `forUsername` or similar
             try {
@@ -21,7 +21,5 @@ export const getChannelIDs = async (handles: string[]): Promise<(string | null)[
                 return null; // Return null in case of an error
             }
         })
-    );
-
-    return channelIDs; // Return array of channel IDs or nulls
+    ); // Return array of channel IDs or nulls
 };

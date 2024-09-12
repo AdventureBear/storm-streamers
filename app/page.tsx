@@ -126,7 +126,7 @@ export default async function Home() {
                                     </div>
                                     <div className="mt-4">
                                         <p className="font-bold">{channel.result.snippet.channelTitle}</p>
-                                        <p className="text-gray-700 text-white">{channel.result.snippet.title}</p>
+                                        <p className="text-white">{channel.result.snippet.title}</p>
                                     </div>
                                 </div>
                             )
