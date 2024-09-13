@@ -38,6 +38,8 @@ export default async function Home() {
             return {
                 handle: channelDetail!.snippet.customUrl,
                 channelTitle: channelDetail!.snippet.title,
+                thumbnail: channelDetail!.snippet.thumbnails.default.url,
+                subscribers: channelDetail!.statistics.subscriberCount,
                 videoData};
         })
     );
@@ -146,8 +148,11 @@ export default async function Home() {
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         {notLiveChannels.map((channel, i) => (
                             <div key={i}
-                                 className="text-bg-blue-200 font-semi-bold bg-gray-200 p-4 rounded-lg shadow-md flex justify-between items-center">
-                                <span className="font-bold text-blue-600">{channel.channelTitle}</span>
+                                 className="text-bg-blue-200 font-semi-bold bg-gray-200 p-3 rounded-lg shadow-md flex justify-between items-center">
+                                <div className="flex gap-2 items-center">
+                                    <img src="https://yt3.ggpht.com/JUXkDPq6FM33YdDf1F0evkLhAvQr_ypkJf7llwSJs5Aq_DoCus7BgufQ6Afb6DrX3W22NkcQWfw=s88-c-k-c0x00ffffff-no-rj" className="h-10 rounded-full inline" />
+                                    <span className="font-bold text-blue-600">{channel.channelTitle}</span>
+                                </div>
                                 <a href={`https://www.youtube.com/${channel.handle}`} target="_blank"
                                    rel="noopener noreferrer"
                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

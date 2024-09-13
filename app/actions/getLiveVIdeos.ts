@@ -7,7 +7,7 @@ export const getLiveVideos = async (channel_id: string): Promise<LiveVideoRespon
     const videoDetailsUrl = `https://www.googleapis.com/youtube/v3/videos`;
 
     // First, get the live videos
-    const searchUrl = `${search_root_url}?part=snippet&id=${channel_id}&type=video&eventType=live&maxResults=10&key=${API_KEY}`;
+    const searchUrl = `${search_root_url}?part=snippet&channelId=${channel_id}&type=video&eventType=live&maxResults=10&key=${API_KEY}`;
     console.log("checking if live: ", searchUrl)
 
     const response = await fetch(searchUrl);
