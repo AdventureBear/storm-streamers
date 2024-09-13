@@ -4,6 +4,7 @@ import {getChannelIDs} from "@/app/actions/getChannelIds";
 import {shortedChannelResponse, writeStreamers} from "@/app/actions/writeData";
 import fs from "node:fs/promises";
 import path from "node:path";
+import Image from "next/image";
 
 
 
