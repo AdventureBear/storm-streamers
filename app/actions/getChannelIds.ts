@@ -5,7 +5,9 @@ export const getChannelIDs = async (handles: string[]): Promise<(shortedChannelR
     const search_root_url = `https://youtube.googleapis.com/youtube/v3/channels`;
 // GET https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics%2Cid&forHandle=[HANDLE]&key=[YOUR_API_KEY] HTTP/1.1
 
-    const allChannelResponses: (shortedChannelResponse | null )[]  =  await Promise.all(
+
+     // Return array of channel IDs or nulls
+    return await Promise.all(
         handles.map(async (handle) => {
             // const url = `${search_root_url}?part=snippet%2CcontentDetails%2Cstatistics%2Cid&forHandle=${handle}&key=${API_KEY}`; // Ensure correct parameter, might need to adjust to `forUsername` or similar
             const url = `${search_root_url}?part=id&forHandle=${handle}&key=${API_KEY}`; // Ensure correct parameter, might need to adjust to `forUsername` or similar
@@ -28,8 +30,6 @@ export const getChannelIDs = async (handles: string[]): Promise<(shortedChannelR
                 return null; // Return null in case of an error
             }
         })
-    ); // Return array of channel IDs or nulls
-
-    return allChannelResponses
+    )
 
 };

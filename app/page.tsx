@@ -50,17 +50,7 @@ export default async function Home() {
     const liveAndEmbeddableChannels = results.filter(result => result.videoData!.isLive && result.videoData!.isEmbeddable);
 
 
-    // // Fetch channel titles for non-live channels
-    //     // const nonLiveChannelTitles = await Promise.all(
-    //     //     notLiveChannels.map(async (channel) => {
-    //     //         const channelTitle = await getChannelDetails(channel.id);
-    //     //         return { id: channel.id, title: channelTitle || channel.handle };
-    //     //     })
-    //     // );
-
-
     return (
-        // <Layout>
             <div className="p-4 text-white">
 
 
@@ -150,7 +140,7 @@ export default async function Home() {
                             <div key={i}
                                  className="text-bg-blue-200 font-semi-bold bg-gray-200 p-3 rounded-lg shadow-md flex justify-between items-center">
                                 <div className="flex gap-2 items-center">
-                                    <img src="https://yt3.ggpht.com/JUXkDPq6FM33YdDf1F0evkLhAvQr_ypkJf7llwSJs5Aq_DoCus7BgufQ6Afb6DrX3W22NkcQWfw=s88-c-k-c0x00ffffff-no-rj" className="h-10 rounded-full inline" />
+                                    <img alt="profile photo" src="https://yt3.ggpht.com/JUXkDPq6FM33YdDf1F0evkLhAvQr_ypkJf7llwSJs5Aq_DoCus7BgufQ6Afb6DrX3W22NkcQWfw=s88-c-k-c0x00ffffff-no-rj" className="h-10 rounded-full inline" />
                                     <span className="font-bold text-blue-600">{channel.channelTitle}</span>
                                 </div>
                                 <a href={`https://www.youtube.com/${channel.handle}`} target="_blank"
@@ -165,8 +155,6 @@ export default async function Home() {
                 </div>
 
             </div>
-
-        // </Layout>
 
     )
         ;
