@@ -1,0 +1,235 @@
+[
+  {
+    "handle": "@ReedTimmerWx",
+    "channel": {
+      "kind": "youtube#channelListResponse",
+      "etag": "yoB5NUwZ50c8Djvh3KlT2pUD_sQ",
+      "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+      },
+      "items": [
+        {
+          "kind": "youtube#channel",
+          "etag": "iYO7a7m9jpScnPgiVl3Wlka8gYQ",
+          "id": "UCV6hWxB0-u_IX7e-h4fEBAw",
+          "snippet": {
+            "title": "Reed Timmer",
+            "description": "Hi, I’m extreme meteorologist and storm chaser, Reed Timmer, known for embedding myself into some of the most severe weather storms and scenarios imaginable, so that I can research, report and warn others before natural disasters strike.\n\nWhile most prefer to avoid the bad news that comes with bad weather, I charge towards it; intercepting tornadoes and hurricanes with my armored vehicle, the SRV Dominator, and launching trackable meteorological sensors into their strongest winds. My team has deployed probes into tornadoes using drones, small aircraft, and even rockets, gathering measurements never-before-recorded on earth. Documenting all things related to atmospheric science is my passion.\n\nI’ve been featured on the Discovery Channel, National Geographic, Netflix, The Weather Channel, Disney, PBS, AccuWeather and more! I’ve been featured on Jay Leno’s Garage, and worked with the legendary Richard Hammond, from Top Gear & Grand Tour. It’s insane where my weather career has taken me.\n",
+            "customUrl": "@reedtimmerwx",
+            "publishedAt": "2006-05-16T19:46:26Z",
+            "thumbnails": {
+              "default": {
+                "url": "https://yt3.ggpht.com/JUXkDPq6FM33YdDf1F0evkLhAvQr_ypkJf7llwSJs5Aq_DoCus7BgufQ6Afb6DrX3W22NkcQWfw=s88-c-k-c0x00ffffff-no-rj",
+                "width": 88,
+                "height": 88
+              },
+              "medium": {
+                "url": "https://yt3.ggpht.com/JUXkDPq6FM33YdDf1F0evkLhAvQr_ypkJf7llwSJs5Aq_DoCus7BgufQ6Afb6DrX3W22NkcQWfw=s240-c-k-c0x00ffffff-no-rj",
+                "width": 240,
+                "height": 240
+              },
+              "high": {
+                "url": "https://yt3.ggpht.com/JUXkDPq6FM33YdDf1F0evkLhAvQr_ypkJf7llwSJs5Aq_DoCus7BgufQ6Afb6DrX3W22NkcQWfw=s800-c-k-c0x00ffffff-no-rj",
+                "width": 800,
+                "height": 800
+              }
+            },
+            "localized": {
+              "title": "Reed Timmer",
+              "description": "Hi, I’m extreme meteorologist and storm chaser, Reed Timmer, known for embedding myself into some of the most severe weather storms and scenarios imaginable, so that I can research, report and warn others before natural disasters strike.\n\nWhile most prefer to avoid the bad news that comes with bad weather, I charge towards it; intercepting tornadoes and hurricanes with my armored vehicle, the SRV Dominator, and launching trackable meteorological sensors into their strongest winds. My team has deployed probes into tornadoes using drones, small aircraft, and even rockets, gathering measurements never-before-recorded on earth. Documenting all things related to atmospheric science is my passion.\n\nI’ve been featured on the Discovery Channel, National Geographic, Netflix, The Weather Channel, Disney, PBS, AccuWeather and more! I’ve been featured on Jay Leno’s Garage, and worked with the legendary Richard Hammond, from Top Gear & Grand Tour. It’s insane where my weather career has taken me.\n"
+            },
+            "country": "US"
+          },
+          "contentDetails": {
+            "relatedPlaylists": {
+              "likes": "",
+              "uploads": "UUV6hWxB0-u_IX7e-h4fEBAw"
+            }
+          },
+          "statistics": {
+            "viewCount": "357326595",
+            "subscriberCount": "1120000",
+            "hiddenSubscriberCount": false,
+            "videoCount": "2620"
+          }
+        }
+      ]
+    }
+  },
+//  {
+//    "handle":    "@MaxVelocityWX",
+//    "channel":  {
+//      "kind": "youtube#channelListResponse",
+//      "etag": "0r7gW_L9b9CdwY_Wv8aZn7mOp8A",
+//      "pageInfo": {
+//        "totalResults": 1,
+//        "resultsPerPage": 5
+//      },
+//      "items": [
+//        {
+//          "kind": "youtube#channel",
+//          "etag": "I5a9RG7-o7LHwdFP-YV5wl8W0B4",
+//          "id": "UCvBVK2ymNzPLRJrgip2GeQQ",
+//          "snippet": {
+//            "title": "Max Velocity - Severe Weather Center",
+//            "description": "Max Velocity provides accurate, honest, and reliable weather information across the United States. Whenever severe weather, hurricanes, blizzards, brutal heat waves, or cold snaps occur, you know who to trust for accurate and honest weather information.\n",
+//            "customUrl": "@maxvelocitywx",
+//            "publishedAt": "2014-08-31T23:30:39Z",
+//            "thumbnails": {
+//              "default": {
+//                "url": "https://yt3.ggpht.com/o07AY5-c46XVZTwyNuAscTMLV_r7GXyot6o09Xcb6l-VqT-xEvypAXZv87ZDNWQlnQlUcv51=s88-c-k-c0x00ffffff-no-rj",
+//                "width": 88,
+//                "height": 88
+//              },
+//              "medium": {
+//                "url": "https://yt3.ggpht.com/o07AY5-c46XVZTwyNuAscTMLV_r7GXyot6o09Xcb6l-VqT-xEvypAXZv87ZDNWQlnQlUcv51=s240-c-k-c0x00ffffff-no-rj",
+//                "width": 240,
+//                "height": 240
+//              },
+//              "high": {
+//                "url": "https://yt3.ggpht.com/o07AY5-c46XVZTwyNuAscTMLV_r7GXyot6o09Xcb6l-VqT-xEvypAXZv87ZDNWQlnQlUcv51=s800-c-k-c0x00ffffff-no-rj",
+//                "width": 800,
+//                "height": 800
+//              }
+//            },
+//            "defaultLanguage": "en",
+//            "localized": {
+//              "title": "Max Velocity - Severe Weather Center",
+//              "description": "Max Velocity provides accurate, honest, and reliable weather information across the United States. Whenever severe weather, hurricanes, blizzards, brutal heat waves, or cold snaps occur, you know who to trust for accurate and honest weather information.\n"
+//            },
+//            "country": "US"
+//          },
+//          "contentDetails": {
+//            "relatedPlaylists": {
+//              "likes": "",
+//              "uploads": "UUvBVK2ymNzPLRJrgip2GeQQ"
+//            }
+//          },
+//          "statistics": {
+//            "viewCount": "59949797",
+//            "subscriberCount": "371000",
+//            "hiddenSubscriberCount": false,
+//            "videoCount": "1298"
+//          }
+//        }
+//      ]
+//    }
+//
+//  },
+//  {"handle": "@RyanHallYall",
+//    "channel": {
+//    "kind": "youtube#channelListResponse",
+//    "etag": "JrbVUlC8Ol45EBgGc2dhB2F5G9I",
+//    "pageInfo": {
+//      "totalResults": 1,
+//      "resultsPerPage": 5
+//    },
+//    "items": [
+//      {
+//        "kind": "youtube#channel",
+//        "etag": "twsTAvyVbXRhU8o9wRcOl0gYaxc",
+//        "id": "UCJHAT3Uvv-g3I8H3GhHWV7w",
+//        "snippet": {
+//          "title": "Ryan Hall, Y'all",
+//          "description": "My name is Ryan Hall. I am a professional weather analyst, storm chaser, and a dad! I love making YouTube videos about the weather and that's what I plan on doing here. Please consider subscribing. \n\nContact: info@ryanhallyall.com\n\n",
+//          "customUrl": "@ryanhallyall",
+//          "publishedAt": "2012-12-05T18:04:15Z",
+//          "thumbnails": {
+//            "default": {
+//              "url": "https://yt3.ggpht.com/ytc/AIdro_m6cYR5IDSUUx72T9eKzzh7IOQ-E5-e9mLjFaMPmZlejss=s88-c-k-c0x00ffffff-no-rj",
+//              "width": 88,
+//              "height": 88
+//            },
+//            "medium": {
+//              "url": "https://yt3.ggpht.com/ytc/AIdro_m6cYR5IDSUUx72T9eKzzh7IOQ-E5-e9mLjFaMPmZlejss=s240-c-k-c0x00ffffff-no-rj",
+//              "width": 240,
+//              "height": 240
+//            },
+//            "high": {
+//              "url": "https://yt3.ggpht.com/ytc/AIdro_m6cYR5IDSUUx72T9eKzzh7IOQ-E5-e9mLjFaMPmZlejss=s800-c-k-c0x00ffffff-no-rj",
+//              "width": 800,
+//              "height": 800
+//            }
+//          },
+//          "localized": {
+//            "title": "Ryan Hall, Y'all",
+//            "description": "My name is Ryan Hall. I am a professional weather analyst, storm chaser, and a dad! I love making YouTube videos about the weather and that's what I plan on doing here. Please consider subscribing. \n\nContact: info@ryanhallyall.com\n\n"
+//          },
+//          "country": "US"
+//        },
+//        "contentDetails": {
+//          "relatedPlaylists": {
+//            "likes": "",
+//            "uploads": "UUJHAT3Uvv-g3I8H3GhHWV7w"
+//          }
+//        },
+//        "statistics": {
+//          "viewCount": "246790265",
+//          "subscriberCount": "2030000",
+//          "hiddenSubscriberCount": false,
+//          "videoCount": "475"
+//        }
+//      }
+//    ]
+//  }
+//
+//  },
+//  {"handle":  "@evanfryberger",
+//    "channel": {
+//      "kind": "youtube#channelListResponse",
+//      "etag": "ZcMpRoxwEvLvrhkDkFjb_lK-z6w",
+//      "pageInfo": {
+//        "totalResults": 1,
+//        "resultsPerPage": 5
+//      },
+//      "items": [
+//        {
+//          "kind": "youtube#channel",
+//          "etag": "F8tcplOY0Z1KEnx9veSQrPotVr8",
+//          "id": "UCp2G_jHO53yj2NVjv8zbDmQ",
+//          "snippet": {
+//            "title": "Evan Fryberger",
+//            "description": "Weather Analyst At Your Service!",
+//            "customUrl": "@evanfryberger",
+//            "publishedAt": "2019-10-15T00:01:51.924892Z",
+//            "thumbnails": {
+//              "default": {
+//                "url": "https://yt3.ggpht.com/U_9aoGixhFBgexbckUB1Z0azG4ew5_dbE7-sb4g1O93JhE3Ulk3dn3hBZQzpzCv2rmEDQxef=s88-c-k-c0x00ffffff-no-rj",
+//                "width": 88,
+//                "height": 88
+//              },
+//              "medium": {
+//                "url": "https://yt3.ggpht.com/U_9aoGixhFBgexbckUB1Z0azG4ew5_dbE7-sb4g1O93JhE3Ulk3dn3hBZQzpzCv2rmEDQxef=s240-c-k-c0x00ffffff-no-rj",
+//                "width": 240,
+//                "height": 240
+//              },
+//              "high": {
+//                "url": "https://yt3.ggpht.com/U_9aoGixhFBgexbckUB1Z0azG4ew5_dbE7-sb4g1O93JhE3Ulk3dn3hBZQzpzCv2rmEDQxef=s800-c-k-c0x00ffffff-no-rj",
+//                "width": 800,
+//                "height": 800
+//              }
+//            },
+//            "localized": {
+//              "title": "Evan Fryberger",
+//              "description": "Weather Analyst At Your Service!"
+//            },
+//            "country": "US"
+//          },
+//          "contentDetails": {
+//            "relatedPlaylists": {
+//              "likes": "",
+//              "uploads": "UUp2G_jHO53yj2NVjv8zbDmQ"
+//            }
+//          },
+//          "statistics": {
+//            "viewCount": "8253054",
+//            "subscriberCount": "53500",
+//            "hiddenSubscriberCount": false,
+//            "videoCount": "667"
+//          }
+//        }
+//      ]
+//    }
+//  }
+]
